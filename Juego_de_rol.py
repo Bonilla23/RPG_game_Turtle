@@ -136,3 +136,10 @@ def curarse():
     texto.clear()
     texto.write(f"¡Ya tienes toda la vida! ({vida})", align="center", font=("Courier", 24, "normal"))
     time.sleep(2)
+    
+# Start the game
+clase_jugador = seleccionar_clase()
+texto.clear()
+texto.goto(0, 0)
+texto.write(f"Eres un {clase_jugador} listo para la batalla. ¡Prepárate!", align="center", font=("Courier", 24, "normal"))
+time.sleep(2)
