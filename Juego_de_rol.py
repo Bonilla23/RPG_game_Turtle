@@ -1,4 +1,4 @@
 # Importar las bibliotecas necesarias
-import random
-import turtle
-import time
+import turtle;
+import time;
+import random;
