@@ -116,8 +116,23 @@ def combatir(jugador, monstruo):
         texto.write(f"¡Derrotaste al {monstruo['nombre']}!", align="center", font=("Courier", 24, "normal"))
         victorias += 1
         time.sleep(2)
+        curarse()
     else:
         texto.clear()
         texto.write(f"¡Has sido derrotado después de {victorias} victorias!", align="center", font=("Courier", 24, "normal"))
         time.sleep(2)
         wn.bye()
+
+# Function for heal yourshelf if you win
+def curarse():
+    global vida
+
+    wn.clear()
+    wn.bgcolor("black")
+    texto.goto(0, 0)
+    texto.write("¡Curándote...!", align="center", font=("Courier", 24, "normal"))
+    time.sleep(1)
+    vida = vidatotal
+    texto.clear()
+    texto.write(f"¡Ya tienes toda la vida! ({vida})", align="center", font=("Courier", 24, "normal"))
+    time.sleep(2)
