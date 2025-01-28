@@ -68,3 +68,45 @@ def mostrar_estadisticas(jugador, monstruo):
     texto.goto(0, 150)
     texto.write(f"Monstruo: {monstruo['nombre']} | Vida: {monstruo['vida']} | Daño: {monstruo['daño']}", align="center", font=("Courier", 18, "normal"))
     time.sleep(2)
+    
+# Función para combatir
+def combatir(jugador, monstruo):
+    global vida, victorias
+
+    texto.clear()
+    texto.goto(0, 200)
+    texto.write(f"¡Un {monstruo['nombre']} aparece con {monstruo['vida']} de vida!", align="center", font=("Courier", 24, "normal"))
+    time.sleep(2)
+
+    while monstruo["vida"] > 0 and vida > 0:
+        mostrar_estadisticas(jugador, monstruo)  # Mostrar las estadísticas antes de cada acción
+        accion = wn.textinput("Acción", "¿Qué haces? (Atacar o Esquivar)").capitalize()
+        
+        if accion == "Atacar":
+            daño_infligido = random.randint(1, daño)
+            monstruo["vida"] -= daño_infligido
+            texto.clear()
+            texto.write(f"¡Golpeas al {monstruo['nombre']} por {daño_infligido} de daño!", align="center", font=("Courier", 24, "normal"))
+            time.sleep(1)
+        elif accion == "Esquivar":
+            if random.random() < agilidad / 20:
+                texto.clear()
+                texto.write("¡Esquivaste el ataque!", align="center", font=("Courier", 24, "normal"))
+                time.sleep(1)
+                continue
+            else:
+                texto.clear()
+                texto.write("¡Fallaste al esquivar!", align="center", font=("Courier", 24, "normal"))
+                time.sleep(1)
+        else:
+            texto.clear()
+            texto.write("Acción no válida. Intenta de nuevo.", align="center", font=("Courier", 24, "normal"))
+            time.sleep(1)
+            continue
+
+        if monstruo["vida"] > 0:
+            daño_recibido = random.randint(1, monstruo["daño"])
+            vida -= daño_recibido
+            texto.clear()
+            texto.write(f"El {monstruo['nombre']} te golpea por {daño_recibido} de daño. Vida restante: {vida}", align="center", font=("Courier", 24, "normal"))
+            time.sleep(1)
