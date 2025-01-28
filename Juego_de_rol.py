@@ -51,3 +51,11 @@ def seleccionar_clase():
             texto.write("Clase no válida. Intenta de nuevo.", align="center", font=("Courier", 24, "normal"))
             time.sleep(2)
             texto.clear()
+
+#Function to generate a monster
+def generar_monstruo():
+    return {
+        "nombre": random.choice(["Esqueleto", "Zombi", "Orco", "Dragón"]),
+        "vida": random.randint(5, 20),
+        "daño": random.randint(1, 10)
+    }
