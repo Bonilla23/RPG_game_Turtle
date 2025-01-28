@@ -137,9 +137,17 @@ def curarse():
     texto.write(f"¡Ya tienes toda la vida! ({vida})", align="center", font=("Courier", 24, "normal"))
     time.sleep(2)
     
+    # Generate a new moster
+    nuevo_monstruo = generar_monstruo()
+    combatir(None, nuevo_monstruo)
+    
 # Start the game
 clase_jugador = seleccionar_clase()
 texto.clear()
 texto.goto(0, 0)
 texto.write(f"Eres un {clase_jugador} listo para la batalla. ¡Prepárate!", align="center", font=("Courier", 24, "normal"))
 time.sleep(2)
+
+#Generate a new moster
+monstruo_inicial = generar_monstruo()
+combatir(None, monstruo_inicial)
