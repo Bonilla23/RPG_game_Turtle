@@ -110,3 +110,14 @@ def combatir(jugador, monstruo):
             texto.clear()
             texto.write(f"El {monstruo['nombre']} te golpea por {daño_recibido} de daño. Vida restante: {vida}", align="center", font=("Courier", 24, "normal"))
             time.sleep(1)
+            
+    if vida > 0:
+        texto.clear()
+        texto.write(f"¡Derrotaste al {monstruo['nombre']}!", align="center", font=("Courier", 24, "normal"))
+        victorias += 1
+        time.sleep(2)
+    else:
+        texto.clear()
+        texto.write(f"¡Has sido derrotado después de {victorias} victorias!", align="center", font=("Courier", 24, "normal"))
+        time.sleep(2)
+        wn.bye()
