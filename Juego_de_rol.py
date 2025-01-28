@@ -16,3 +16,11 @@ texto.color("white")
 texto.hideturtle()
 texto.penup()
 texto.speed(0)
+
+# Create variables 
+victorias = 0
+vida = 0
+vidatotal = 0
+daño = 0
+agilidad = 0
+inteligencia = 0
