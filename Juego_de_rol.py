@@ -59,3 +59,12 @@ def generar_monstruo():
         "vida": random.randint(5, 20),
         "daño": random.randint(1, 10)
     }
+
+# Function to show the statistics
+def mostrar_estadisticas(jugador, monstruo):
+    texto.clear()
+    texto.goto(0, 200)
+    texto.write(f"Tu Vida: {vida} | Daño: {daño} | Agilidad: {agilidad} | Inteligencia: {inteligencia}", align="center", font=("Courier", 18, "normal"))
+    texto.goto(0, 150)
+    texto.write(f"Monstruo: {monstruo['nombre']} | Vida: {monstruo['vida']} | Daño: {monstruo['daño']}", align="center", font=("Courier", 18, "normal"))
+    time.sleep(2)
